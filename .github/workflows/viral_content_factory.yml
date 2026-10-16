@@ -1,0 +1,359 @@
+name: Viral Content Factory1
+
+on:
+  schedule:
+    # موعدا النشر: 10:00 و17:00 بتوقيت المغرب (Africa/Casablanca).
+    # GitHub يؤخر المجدولات أحيانًا (خاصة عند بداية الساعة) أو يُسقطها، وتوقيت المغرب
+    # UTC+1 وفي رمضان UTC+0. لذلك نضع عدة محاولات (دقيقة 11 لتجنب الازدحام)، وتقرر
+    # وظيفة schedule-gate: هل نحن داخل نافذة موعد لم يُنشر فيه مقال اليوم بعد؟
+    # أول محاولة داخل النافذة تعمل، وما بعدها يُتخطى، فلا ضياع للموعد ولا تكرار.
+    - cron: "11 11-13 * * *"    # نافذة الصباح (10:00–13:59 بتوقيت المغرب)
+    - cron: "11 14-16 * * *"   # نافذة المساء (17:00–20:59 بتوقيت المغرب)
+  workflow_dispatch:
+    inputs:
+      article_url:
+        description: "ضع رابط المقال الأصلي (اتركه فارغًا ليختار النظام قصة تلقائيًا)"
+        required: false
+        default: ""
+        type: string
+      force_reprocess:
+        description: "إعادة معالجة الرابط حتى لو عولج سابقًا"
+        required: false
+        default: false
+        type: boolean
+      publish_to_blogger:
+        description: "النشر التلقائي على Blogger (ألغِه في تشغيلات الاختبار)"
+        required: false
+        default: true
+        type: boolean
+      blogger_label:
+        description: "تصنيف المقال في Blogger (موجود أو جديد؛ افصل بفاصلة لأكثر من تسمية)"
+        required: false
+        default: ""
+        type: string
+      send_whatsapp:
+        description: "إرسال صورة المنشور ونصه والتعليق الأول إلى واتساب (GREEN-API)"
+        required: false
+        default: true
+        type: boolean
+      slot:
+        description: "للاستدعاء الخارجي فقط (cron-job.org): morning أو evening. اتركه فارغًا في التشغيل اليدوي"
+        required: false
+        default: ""
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: viral-content-factory
+  cancel-in-progress: false
+
+jobs:
+  schedule-gate:
+    name: Check Morocco time slot
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      run: ${{ steps.slot.outputs.run }}
+      slot: ${{ steps.slot.outputs.slot }}
+      day: ${{ steps.slot.outputs.day }}
+      unattended: ${{ steps.slot.outputs.unattended }}
+    steps:
+      - name: Checkout repository (to read slot markers)
+        if: ${{ github.event_name == 'schedule' || inputs.slot != '' }}
+        uses: actions/checkout@v4
+
+      - name: Decide whether to run now
+        id: slot
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_SLOT: ${{ inputs.slot }}
+        run: |
+          set -euo pipefail
+          NOW="${GATE_NOW:-now}"      # GATE_NOW للاختبار فقط
+          DAY="$(TZ=Africa/Casablanca date -d "$NOW" +%F)"
+          SLOT=""
+
+          if [[ "$EVENT_NAME" == "schedule" ]]; then
+            # الجدولة الداخلية: نافذة لكل موعد بتوقيت المغرب
+            HOUR="$(TZ=Africa/Casablanca date -d "$NOW" +%H)"
+            HOUR=$((10#$HOUR))
+            if (( HOUR >= 10 && HOUR <= 13 )); then
+              SLOT=morning
+            elif (( HOUR >= 17 && HOUR <= 20 )); then
+              SLOT=evening
+            fi
+            echo "Morocco time: $DAY hour=$HOUR slot=${SLOT:-none}"
+            if [[ -z "$SLOT" ]]; then
+              echo "run=false" >> "$GITHUB_OUTPUT"
+              echo "Outside the publishing windows (10-13h / 17-20h Morocco time); skipping."
+              exit 0
+            fi
+          elif [[ -n "$INPUT_SLOT" ]]; then
+            # استدعاء خارجي (cron-job.org) يحدد الموعد صراحةً
+            case "$INPUT_SLOT" in
+              morning|evening) SLOT="$INPUT_SLOT" ;;
+              *) echo "::error::slot must be 'morning' or 'evening' (got '$INPUT_SLOT')"; exit 1 ;;
+            esac
+            echo "External trigger for the $SLOT slot of $DAY"
+          else
+            # تشغيل يدوي عادي: يمر دائمًا ولا يستهلك موعدًا
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "unattended=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [[ -f "output/_slots/${DAY}-${SLOT}.txt" ]]; then
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "The $SLOT article of $DAY was already published; skipping."
+            exit 0
+          fi
+          {
+            echo "run=true"
+            echo "slot=$SLOT"
+            echo "day=$DAY"
+            echo "unattended=true"
+          } >> "$GITHUB_OUTPUT"
+
+  generate:
+    name: Generate Arabic Content and Image
+    needs: schedule-gate
+    if: ${{ needs.schedule-gate.outputs.run == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install arabic-reshaper python-bidi
+          python -m pip install rembg onnxruntime
+
+      - name: Cache rembg models
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.rembg
+            ~/.u2net
+          key: rembg-models-v1
+
+      - name: Ensure Arabic font
+        shell: bash
+        run: |
+          mkdir -p fonts
+          if [[ ! -f fonts/IBMPlexSansArabic-Bold.ttf ]]; then
+            curl -fsSL -o fonts/IBMPlexSansArabic-Bold.ttf \
+              "https://raw.githubusercontent.com/google/fonts/main/ofl/ibmplexsansarabic/IBMPlexSansArabic-Bold.ttf" \
+              || echo "::warning::Could not download the Arabic font."
+          fi
+
+      - name: Validate Groq API key
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        shell: bash
+        run: |
+          if [[ -z "${GROQ_API_KEY:-}" ]]; then
+            echo "::error::Missing GROQ_API_KEY in GitHub Secrets."
+            exit 1
+          fi
+
+      - name: Preflight check (files, imports, secrets)
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_WRITER_API_KEY: ${{ secrets.GEMINI_WRITER_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          BLOGGER_CLIENT_ID: ${{ secrets.BLOGGER_CLIENT_ID }}
+          BLOGGER_CLIENT_SECRET: ${{ secrets.BLOGGER_CLIENT_SECRET }}
+          BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
+          BLOGGER_BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
+          GREENAPI_ID_INSTANCE: ${{ secrets.GREENAPI_ID_INSTANCE }}
+          GREENAPI_API_TOKEN: ${{ secrets.GREENAPI_API_TOKEN }}
+          GREENAPI_CHAT_ID: ${{ secrets.GREENAPI_CHAT_ID }}
+          PYTHONUNBUFFERED: "1"
+        run: python preflight.py
+
+      - name: Pick story automatically
+        id: pick
+        if: ${{ needs.schedule-gate.outputs.unattended == 'true' || inputs.article_url == '' }}
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GROQ_MODEL: ${{ vars.GROQ_MODEL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_WRITER_API_KEY: ${{ secrets.GEMINI_WRITER_API_KEY }}
+          GEMINI_WRITER_MODEL: ${{ vars.GEMINI_WRITER_MODEL }}
+          WRITER_PROVIDER: ${{ vars.WRITER_PROVIDER }}
+          RANK_ROUNDS: ${{ vars.RANK_ROUNDS }}
+          RANK_WAIT_SECONDS: ${{ vars.RANK_WAIT_SECONDS }}
+          PYTHONUNBUFFERED: "1"
+        run: python picker.py
+
+      - name: Generate content
+        id: generate
+        env:
+          ARTICLE_URL: ${{ inputs.article_url || steps.pick.outputs.article_url }}
+          CONTENT_CATEGORY: ${{ steps.pick.outputs.category }}
+          AUTO_PICK: ${{ needs.schedule-gate.outputs.unattended == 'true' || inputs.article_url == '' }}
+          MAX_STORY_ATTEMPTS: ${{ vars.MAX_STORY_ATTEMPTS }}
+          REJECT_ON: ${{ vars.REJECT_ON }}
+          MAX_UNSUPPORTED: ${{ vars.MAX_UNSUPPORTED }}
+          RANK_ROUNDS: ${{ vars.RANK_ROUNDS }}
+          RANK_WAIT_SECONDS: ${{ vars.RANK_WAIT_SECONDS }}
+          CF_IMAGE_FALLBACK_MODEL: ${{ vars.CF_IMAGE_FALLBACK_MODEL }}
+          FB_IMAGE_RATIO: ${{ vars.FB_IMAGE_RATIO }}
+          FORCE_REPROCESS: ${{ inputs.force_reprocess }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GROQ_MODEL: ${{ vars.GROQ_MODEL }}
+          GROQ_VISION_MODEL: ${{ vars.GROQ_VISION_MODEL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          VISION_PROVIDER: ${{ vars.VISION_PROVIDER }}
+          ADD_IMAGE_TEXT: ${{ vars.ADD_IMAGE_TEXT }}
+          GEMINI_WRITER_API_KEY: ${{ secrets.GEMINI_WRITER_API_KEY }}
+          GEMINI_WRITER_MODEL: ${{ vars.GEMINI_WRITER_MODEL }}
+          WRITER_PROVIDER: ${{ vars.WRITER_PROVIDER }}
+          AI_REVIEW: ${{ vars.AI_REVIEW }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_IMAGE_MODEL: ${{ vars.CF_IMAGE_MODEL }}
+          CF_IMAGE_ENABLED: ${{ vars.CF_IMAGE_ENABLED }}
+          CF_SKIP_SENSITIVE: ${{ vars.CF_SKIP_SENSITIVE }}
+          THUMBNAIL_MODE: ${{ vars.THUMBNAIL_MODE }}
+          REMBG_MODEL: ${{ vars.REMBG_MODEL }}
+          MAX_ARTICLE_CHARS: "30000"
+          PYTHONUNBUFFERED: "1"
+        run: python run_factory.py
+
+      - name: Verify output
+        shell: bash
+        env:
+          OUT_DIR: ${{ steps.generate.outputs.out_dir }}
+        run: |
+          set -euo pipefail
+
+          if [[ -z "${OUT_DIR:-}" || ! -d "$OUT_DIR" ]]; then
+            echo "::error::Output directory for this article was not created."
+            exit 1
+          fi
+
+          if [[ -z "$(find "$OUT_DIR" -type f -print -quit)" ]]; then
+            echo "::error::No output files were generated."
+            exit 1
+          fi
+
+      - name: Upload output (this article only)
+        uses: actions/upload-artifact@v4
+        with:
+          name: viral-content-package
+          path: ${{ steps.generate.outputs.out_dir }}
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Mark publishing slot as done
+        if: ${{ needs.schedule-gate.outputs.slot != '' }}
+        shell: bash
+        env:
+          SLOT: ${{ needs.schedule-gate.outputs.slot }}
+          DAY: ${{ needs.schedule-gate.outputs.day }}
+        run: |
+          mkdir -p output/_slots
+          echo "done $(date -u +%FT%TZ)" > "output/_slots/${DAY}-${SLOT}.txt"
+
+      - name: Commit generated files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          BRANCH="${GITHUB_REF_NAME}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A -- output/
+
+          if git diff --cached --quiet; then
+            echo "No output changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Generate article content"
+
+          git fetch origin "$BRANCH"
+          git rebase "origin/$BRANCH"
+          git push origin "HEAD:refs/heads/$BRANCH"
+
+      - name: Publish to Blogger
+        if: ${{ needs.schedule-gate.outputs.unattended == 'true' || inputs.publish_to_blogger }}
+        continue-on-error: true
+        shell: bash
+        env:
+          OUT_DIR: ${{ steps.generate.outputs.out_dir }}
+          FORCE_REPROCESS: ${{ inputs.force_reprocess }}
+          BLOGGER_LABEL: ${{ inputs.blogger_label }}
+          BLOGGER_DRAFT: ${{ vars.BLOGGER_DRAFT }}
+          BLOGGER_CLIENT_ID: ${{ secrets.BLOGGER_CLIENT_ID }}
+          BLOGGER_CLIENT_SECRET: ${{ secrets.BLOGGER_CLIENT_SECRET }}
+          BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
+          BLOGGER_BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
+          PYTHONUNBUFFERED: "1"
+        run: |
+          set -euo pipefail
+          # الصور دُفعت في الخطوة السابقة؛ نستخدم commit الحالي في روابط CDN
+          export BLOGGER_COMMIT_SHA="$(git rev-parse HEAD)"
+          python blogger_publish.py
+
+      - name: Commit Blogger result
+        if: ${{ needs.schedule-gate.outputs.unattended == 'true' || inputs.publish_to_blogger }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          BRANCH="${GITHUB_REF_NAME}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A -- output/
+
+          if git diff --cached --quiet; then
+            echo "No Blogger result changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Save Blogger publish result"
+
+          git fetch origin "$BRANCH"
+          git rebase "origin/$BRANCH"
+          git push origin "HEAD:refs/heads/$BRANCH"
+
+      - name: Send package to WhatsApp (GREEN-API)
+        if: ${{ needs.schedule-gate.outputs.unattended == 'true' || inputs.send_whatsapp }}
+        continue-on-error: true
+        shell: bash
+        env:
+          OUT_DIR: ${{ steps.generate.outputs.out_dir }}
+          GREENAPI_ID_INSTANCE: ${{ secrets.GREENAPI_ID_INSTANCE }}
+          GREENAPI_API_TOKEN: ${{ secrets.GREENAPI_API_TOKEN }}
+          GREENAPI_CHAT_ID: ${{ secrets.GREENAPI_CHAT_ID }}
+          GREENAPI_API_URL: ${{ vars.GREENAPI_API_URL }}
+          GREENAPI_MEDIA_URL: ${{ vars.GREENAPI_MEDIA_URL }}
+          PYTHONUNBUFFERED: "1"
+        run: python whatsapp_notify.py
