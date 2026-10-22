@@ -185,5 +185,23 @@
   },
   "image_note": "",
   "rights_note": "لا يعني ظهور الصورة في المقال أن إعادة نشرها مسموحة. تحقق من الترخيص أو الإذن قبل النشر.",
-  "verification_note": "أعيدت صياغة المقال اعتمادًا على النص المستخرج فقط؛ لم يتم التحقق من الوقائع بشكل مستقل. المراجعة الآلية في article_review قد تخطئ، فراجع النص قبل النشر."
+  "verification_note": "أعيدت صياغة المقال اعتمادًا على النص المستخرج فقط؛ لم يتم التحقق من الوقائع بشكل مستقل. المراجعة الآلية في article_review قد تخطئ، فراجع النص قبل النشر.",
+  "blogger": {
+    "blogger_images": [
+      "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@d9deb03afdadf63d9a686185808e6ee722ac4c6c/output/cf4c82f11c32/thumbnail.jpg"
+    ],
+    "post_id": "1380157844672783369",
+    "url": "https://www.almosaitiron.com/2026/10/blog-post_22.html",
+    "status": "LIVE",
+    "labels": [
+      "معجزات ونجاة"
+    ],
+    "action": "insert",
+    "images": {
+      "thumbnail.jpg": "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@d9deb03afdadf63d9a686185808e6ee722ac4c6c/output/cf4c82f11c32/thumbnail.jpg",
+      "article_middle.jpg": "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@d9deb03afdadf63d9a686185808e6ee722ac4c6c/output/cf4c82f11c32/article_middle.jpg"
+    },
+    "commit": "d9deb03afdadf63d9a686185808e6ee722ac4c6c",
+    "published_at_utc": "2026-10-22T12:14:56.764260+00:00"
+  }
 }
