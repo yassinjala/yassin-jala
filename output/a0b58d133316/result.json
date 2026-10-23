@@ -210,5 +210,23 @@
   },
   "image_note": "",
   "rights_note": "لا يعني ظهور الصورة في المقال أن إعادة نشرها مسموحة. تحقق من الترخيص أو الإذن قبل النشر.",
-  "verification_note": "أعيدت صياغة المقال اعتمادًا على النص المستخرج فقط؛ لم يتم التحقق من الوقائع بشكل مستقل. المراجعة الآلية في article_review قد تخطئ، فراجع النص قبل النشر."
+  "verification_note": "أعيدت صياغة المقال اعتمادًا على النص المستخرج فقط؛ لم يتم التحقق من الوقائع بشكل مستقل. المراجعة الآلية في article_review قد تخطئ، فراجع النص قبل النشر.",
+  "blogger": {
+    "blogger_images": [
+      "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@6bed5014468d8e70d56122b69a5c9440ffa82804/output/a0b58d133316/thumbnail.jpg"
+    ],
+    "post_id": "289428016975181556",
+    "url": "https://www.almosaitiron.com/2026/10/194.html",
+    "status": "LIVE",
+    "labels": [
+      "غرائب وعجائب"
+    ],
+    "action": "insert",
+    "images": {
+      "thumbnail.jpg": "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@6bed5014468d8e70d56122b69a5c9440ffa82804/output/a0b58d133316/thumbnail.jpg",
+      "article_middle.jpg": "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@6bed5014468d8e70d56122b69a5c9440ffa82804/output/a0b58d133316/article_middle.jpg"
+    },
+    "commit": "6bed5014468d8e70d56122b69a5c9440ffa82804",
+    "published_at_utc": "2026-10-23T12:16:12.590010+00:00"
+  }
 }
