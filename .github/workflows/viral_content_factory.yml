@@ -1,14 +1,17 @@
-name: Viral Content Factory1
+name: Viral Content Factory
 
 on:
   schedule:
-    # موعدا النشر: 10:00 و17:00 بتوقيت المغرب (Africa/Casablanca).
-    # GitHub يؤخر المجدولات أحيانًا (خاصة عند بداية الساعة) أو يُسقطها، وتوقيت المغرب
-    # UTC+1 وفي رمضان UTC+0. لذلك نضع عدة محاولات (دقيقة 11 لتجنب الازدحام)، وتقرر
-    # وظيفة schedule-gate: هل نحن داخل نافذة موعد لم يُنشر فيه مقال اليوم بعد؟
-    # أول محاولة داخل النافذة تعمل، وما بعدها يُتخطى، فلا ضياع للموعد ولا تكرار.
-    - cron: "11 11-13 * * *"    # نافذة الصباح (10:00–13:59 بتوقيت المغرب)
-    - cron: "11 14-16 * * *"   # نافذة المساء (17:00–20:59 بتوقيت المغرب)
+    # موعد النشر اليومي الوحيد: 08:25 بتوقيت المغرب (Africa/Casablanca).
+    # GitHub يؤخر المجدولات أحيانًا أو يُسقطها، وتوقيت المغرب UTC+1
+    # وفي رمضان UTC+0. لذلك نضع عدة محاولات (دقيقة 25)، وتقرر وظيفة
+    # schedule-gate: هل بلغنا 08:25 بتوقيت المغرب ولم يُنشر مقال اليوم بعد؟
+    # أول محاولة داخل النافذة (08:25–11:59 بتوقيت المغرب) تعمل، وما بعدها
+    # يُتخطى، فلا ضياع للموعد ولا تكرار.
+    - cron: "31 9 * * *"     # 08:25 بتوقيت المغرب في الوضع العادي (UTC+1)
+    - cron: "31 8 * * *"     # 08:25 في رمضان (UTC+0) / 09:25 في الوضع العادي
+    - cron: "21 9 * * *"     # محاولة احتياطية
+    - cron: "21 10 * * *"    # محاولة احتياطية أخيرة
   workflow_dispatch:
     inputs:
       article_url:
@@ -22,7 +25,7 @@ on:
         default: false
         type: boolean
       publish_to_blogger:
-        description: "النشر التلقائي على Blogger (ألغِه في تشغيلات الاختبار)"
+        description: "النشر على Blogger عبر Make (ألغِه في تشغيلات الاختبار)"
         required: false
         default: true
         type: boolean
@@ -37,7 +40,7 @@ on:
         default: true
         type: boolean
       slot:
-        description: "للاستدعاء الخارجي فقط (cron-job.org): morning أو evening. اتركه فارغًا في التشغيل اليدوي"
+        description: "للاستدعاء الخارجي فقط (cron-job.org): daily. اتركه فارغًا في التشغيل اليدوي"
         required: false
         default: ""
         type: string
@@ -77,25 +80,25 @@ jobs:
           SLOT=""
 
           if [[ "$EVENT_NAME" == "schedule" ]]; then
-            # الجدولة الداخلية: نافذة لكل موعد بتوقيت المغرب
+            # الجدولة الداخلية: نافذة الموعد اليومي بتوقيت المغرب
+            # من 08:25 (505 دقيقة) إلى 11:59 (719 دقيقة)
             HOUR="$(TZ=Africa/Casablanca date -d "$NOW" +%H)"
-            HOUR=$((10#$HOUR))
-            if (( HOUR >= 10 && HOUR <= 13 )); then
-              SLOT=morning
-            elif (( HOUR >= 17 && HOUR <= 20 )); then
-              SLOT=evening
+            MINUTE="$(TZ=Africa/Casablanca date -d "$NOW" +%M)"
+            MINUTES_OF_DAY=$(( 10#$HOUR * 60 + 10#$MINUTE ))
+            if (( MINUTES_OF_DAY >= 505 && MINUTES_OF_DAY <= 719 )); then
+              SLOT=daily
             fi
-            echo "Morocco time: $DAY hour=$HOUR slot=${SLOT:-none}"
+            echo "Morocco time: $DAY ${HOUR}:${MINUTE} slot=${SLOT:-none}"
             if [[ -z "$SLOT" ]]; then
               echo "run=false" >> "$GITHUB_OUTPUT"
-              echo "Outside the publishing windows (10-13h / 17-20h Morocco time); skipping."
+              echo "Outside the publishing window (08:25-11:59 Morocco time); skipping."
               exit 0
             fi
           elif [[ -n "$INPUT_SLOT" ]]; then
             # استدعاء خارجي (cron-job.org) يحدد الموعد صراحةً
             case "$INPUT_SLOT" in
-              morning|evening) SLOT="$INPUT_SLOT" ;;
-              *) echo "::error::slot must be 'morning' or 'evening' (got '$INPUT_SLOT')"; exit 1 ;;
+              daily|morning) SLOT="daily" ;;
+              *) echo "::error::slot must be 'daily' (got '$INPUT_SLOT')"; exit 1 ;;
             esac
             echo "External trigger for the $SLOT slot of $DAY"
           else
@@ -183,6 +186,8 @@ jobs:
           BLOGGER_CLIENT_SECRET: ${{ secrets.BLOGGER_CLIENT_SECRET }}
           BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
           BLOGGER_BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
+          MAKE_WEBHOOK_URL: ${{ secrets.MAKE_WEBHOOK_URL }}
+          MAKE_WEBHOOK_SECRET: ${{ secrets.MAKE_WEBHOOK_SECRET }}
           GREENAPI_ID_INSTANCE: ${{ secrets.GREENAPI_ID_INSTANCE }}
           GREENAPI_API_TOKEN: ${{ secrets.GREENAPI_API_TOKEN }}
           GREENAPI_CHAT_ID: ${{ secrets.GREENAPI_CHAT_ID }}
@@ -299,7 +304,7 @@ jobs:
           git rebase "origin/$BRANCH"
           git push origin "HEAD:refs/heads/$BRANCH"
 
-      - name: Publish to Blogger
+      - name: Publish via Make
         if: ${{ needs.schedule-gate.outputs.unattended == 'true' || inputs.publish_to_blogger }}
         continue-on-error: true
         shell: bash
@@ -308,16 +313,14 @@ jobs:
           FORCE_REPROCESS: ${{ inputs.force_reprocess }}
           BLOGGER_LABEL: ${{ inputs.blogger_label }}
           BLOGGER_DRAFT: ${{ vars.BLOGGER_DRAFT }}
-          BLOGGER_CLIENT_ID: ${{ secrets.BLOGGER_CLIENT_ID }}
-          BLOGGER_CLIENT_SECRET: ${{ secrets.BLOGGER_CLIENT_SECRET }}
-          BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
-          BLOGGER_BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
+          MAKE_WEBHOOK_URL: ${{ secrets.MAKE_WEBHOOK_URL }}
+          MAKE_WEBHOOK_SECRET: ${{ secrets.MAKE_WEBHOOK_SECRET }}
           PYTHONUNBUFFERED: "1"
         run: |
           set -euo pipefail
           # الصور دُفعت في الخطوة السابقة؛ نستخدم commit الحالي في روابط CDN
           export BLOGGER_COMMIT_SHA="$(git rev-parse HEAD)"
-          python blogger_publish.py
+          python make_publish.py
 
       - name: Commit Blogger result
         if: ${{ needs.schedule-gate.outputs.unattended == 'true' || inputs.publish_to_blogger }}
