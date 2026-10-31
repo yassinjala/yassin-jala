@@ -144,5 +144,21 @@
   },
   "image_note": "نجح التحليل عبر groq بعد فشل: Gemini: خطأ Gemini HTTP 404 (gemini-2.0-flash): {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
   "rights_note": "لا يعني ظهور الصورة في المقال أن إعادة نشرها مسموحة. تحقق من الترخيص أو الإذن قبل النشر.",
-  "verification_note": "أعيدت صياغة المقال اعتمادًا على النص المستخرج فقط؛ لم يتم التحقق من الوقائع بشكل مستقل. المراجعة الآلية في article_review قد تخطئ، فراجع النص قبل النشر."
+  "verification_note": "أعيدت صياغة المقال اعتمادًا على النص المستخرج فقط؛ لم يتم التحقق من الوقائع بشكل مستقل. المراجعة الآلية في article_review قد تخطئ، فراجع النص قبل النشر.",
+  "blogger": {
+    "via": "make",
+    "post_id": null,
+    "url": null,
+    "status": "DRAFT",
+    "labels": [
+      "قصص إنسانية وواقعية"
+    ],
+    "action": "insert",
+    "images": {
+      "thumbnail.jpg": "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@80580244a88ba84ccde54c1b8ae5c84ade917d31/output/b0eae27feaff/thumbnail.jpg",
+      "article_middle.jpg": "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@80580244a88ba84ccde54c1b8ae5c84ade917d31/output/b0eae27feaff/article_middle.jpg"
+    },
+    "commit": "80580244a88ba84ccde54c1b8ae5c84ade917d31",
+    "sent_at_utc": "2026-10-31T20:46:15.271653+00:00"
+  }
 }
