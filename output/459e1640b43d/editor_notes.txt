@@ -1,0 +1,18 @@
+ملاحظات المحرر (للاستخدام الداخلي، لا تُنشر)
+========================================
+المصدر الأصلي: https://www.upi.com/Odd_News/2026/10/30/switzerland-eth-zurich-robot-hand-walk/8121793382351/
+العنوان الأصلي: Watch: Swiss researchers unveil robot hand that walks on its fingers - UPI.com
+التصنيف: غرائب وعجائب
+الكاتب: groq (openai/gpt-oss-120b)، المحاولات: 1
+عدد الكلمات: 280 (المستهدف 380) — مدة القراءة نحو 2 دقيقة
+
+الفحص الآلي:
+- لا مخالفات.
+
+مراجعة المصدر (آلية، قد تخطئ):
+- «الصراحة، التدريب كان يشبه لعب لعبة فيديو، حيث جربت اليد آلاف الحركات حتى وجدت الطريقة المثلى لتوازنها.» ← Source does not state the hand tried thousands of motions or that training resembled a video‑game; claim not supported
+
+الربط الداخلي:
+- أول طائر في العالم يحصل على منقار اصطناعي مزدوج ← https://www.almosaitiron.com/2026/10/blog-post_17.html
+
+تذكير: الصياغة بصوت معلّق على الخبر لا باحث ميداني؛ لا تضف إليها ادعاء بحث أو تواصل. راجع حقوق الصور قبل النشر.
