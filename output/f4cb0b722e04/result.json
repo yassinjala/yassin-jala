@@ -153,5 +153,21 @@
   },
   "image_note": "نجح التحليل عبر groq بعد فشل: Gemini: خطأ Gemini HTTP 404 (gemini-2.0-flash): {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.0-flash is no longer available. Please update your code to use models/gemini-3.8-flash for the latest features and improvements. We recommend you to use the Interactions API (https://ai.google.dev/gemini-api/docs/get-started).\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
   "rights_note": "لا يعني ظهور الصورة في المقال أن إعادة نشرها مسموحة. تحقق من الترخيص أو الإذن قبل النشر.",
-  "verification_note": "أعيدت صياغة المقال اعتمادًا على النص المستخرج فقط؛ لم يتم التحقق من الوقائع بشكل مستقل. المراجعة الآلية في article_review قد تخطئ، فراجع النص قبل النشر."
+  "verification_note": "أعيدت صياغة المقال اعتمادًا على النص المستخرج فقط؛ لم يتم التحقق من الوقائع بشكل مستقل. المراجعة الآلية في article_review قد تخطئ، فراجع النص قبل النشر.",
+  "blogger": {
+    "via": "make",
+    "post_id": "1507487503550090630",
+    "url": "URL",
+    "status": "STATUS",
+    "labels": [
+      "تريند"
+    ],
+    "action": "insert",
+    "images": {
+      "thumbnail.jpg": "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@679a8caa9a8f37292eb49e5f535103bdee598209/output/f4cb0b722e04/thumbnail.jpg",
+      "article_middle.jpg": "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@679a8caa9a8f37292eb49e5f535103bdee598209/output/f4cb0b722e04/article_middle.jpg"
+    },
+    "commit": "679a8caa9a8f37292eb49e5f535103bdee598209",
+    "published_at_utc": "2026-11-03T04:11:04.357414+00:00"
+  }
 }
