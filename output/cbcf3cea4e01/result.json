@@ -226,5 +226,21 @@
   },
   "image_note": "",
   "rights_note": "لا يعني ظهور الصورة في المقال أن إعادة نشرها مسموحة. تحقق من الترخيص أو الإذن قبل النشر.",
-  "verification_note": "أعيدت صياغة المقال اعتمادًا على النص المستخرج فقط؛ لم يتم التحقق من الوقائع بشكل مستقل. المراجعة الآلية في article_review قد تخطئ، فراجع النص قبل النشر."
+  "verification_note": "أعيدت صياغة المقال اعتمادًا على النص المستخرج فقط؛ لم يتم التحقق من الوقائع بشكل مستقل. المراجعة الآلية في article_review قد تخطئ، فراجع النص قبل النشر.",
+  "blogger": {
+    "via": "make",
+    "post_id": "3918476487202550740",
+    "url": "https://www.almosaitiron.com/2026/11/blog-post_366.html",
+    "status": "LIVE",
+    "labels": [
+      "تريند"
+    ],
+    "action": "insert",
+    "images": {
+      "thumbnail.jpg": "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@37f63200899a52e31cb77c3a8e086a57d53452af/output/cbcf3cea4e01/thumbnail.jpg",
+      "article_middle.jpg": "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@37f63200899a52e31cb77c3a8e086a57d53452af/output/cbcf3cea4e01/article_middle.jpg"
+    },
+    "commit": "37f63200899a52e31cb77c3a8e086a57d53452af",
+    "published_at_utc": "2026-11-04T17:37:41.423170+00:00"
+  }
 }
