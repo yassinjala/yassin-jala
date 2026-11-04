@@ -17,7 +17,7 @@ GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models"
 
 # يمكن تغيير النموذج من متغير GEMINI_MODEL في GitHub (Variables).
 # إذا لم يُحدَّد، يجرَّب الأول ثم الثاني عند عدم وجود النموذج.
-DEFAULT_MODELS = ("gemini-3.8-flash", "gemini-3.6-flash", "gemini-1.5-flash", "gemini-1.5-pro")
+DEFAULT_MODELS = ("gemini-3.8-flash","gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-3-flash-preview", "gemini-2.5-flash", "gemini-2.5-flash-lite")
 
 MAX_IMAGES = 4
 REQUEST_TIMEOUT = 120
