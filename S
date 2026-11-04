@@ -1,1 +1,27 @@
 AIzaSyA6FgnkZm5wfFlnNsSuC9SEQo_e5MmwUe4
+
+Run set -euo pipefail
+  set -euo pipefail
+  # الصور دُفعت في الخطوة السابقة؛ نستخدم commit الحالي في روابط CDN
+  export BLOGGER_COMMIT_SHA="$(git rev-parse HEAD)"
+  python make_publish.py
+  shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+  env:
+    pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+    PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+    Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+    Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+    Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+    LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+    OUT_DIR: output/17478c3f814b
+    FORCE_REPROCESS: false
+    BLOGGER_LABEL: 
+    BLOGGER_DRAFT: true
+    MAKE_WEBHOOK_URL: ***
+    MAKE_WEBHOOK_SECRET: ***
+    BLOGGER_BLOG_ID: ***
+    BLOGGER_API_KEY: ***
+    PYTHONUNBUFFERED: 1
+Warning: لا رابط عامًا للمسودة، فيبقى {LINK} في first_comment.txt حتى يُنشر المقال.
+أُرسل المقال مسودةً عبر Make (post_id=30591426333924471).
+
