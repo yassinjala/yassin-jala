@@ -62,20 +62,30 @@
 <Variable name="StoryGroupsTitle" description="عنوان مجموعات القصص" type="string" default="أنواع القصص" value="أنواع القصص"/>
 <Variable name="StoryGroupPosts" description="عدد المقالات داخل كل مجموعة: 1=6، 2=9، 3=12" type="length" default="2px" min="1px" max="3px" value="2px"/>
 <Variable name="OpenFirstStoryGroup" description="فتح أول مجموعة تلقائيًا" type="length" default="2px" min="1px" max="2px" value="2px"/>
-<Variable name="StoryGroup1Name" description="اسم المجموعة الأولى" type="string" default="قصص واقعية وإنسانية" value="قصص واقعية وإنسانية"/>
-<Variable name="StoryGroup1Labels" description="تصنيفات المجموعة الأولى مفصولة بفواصل" type="string" default="قصص إنسانية وواقعية,قصص" value="قصص إنسانية وواقعية,قصص"/>
-<Variable name="StoryGroup2Name" description="اسم المجموعة الثانية" type="string" default="قصص خيالية" value="قصص خيالية"/>
-<Variable name="StoryGroup2Labels" description="تصنيفات المجموعة الثانية مفصولة بفواصل" type="string" default="قصص خيالية" value="قصص خيالية"/>
-<Variable name="StoryGroup3Name" description="اسم المجموعة الثالثة" type="string" default="قصص رعب" value="قصص رعب"/>
-<Variable name="StoryGroup3Labels" description="تصنيفات المجموعة الثالثة مفصولة بفواصل" type="string" default="رعب,قصص رعب" value="رعب,قصص رعب"/>
-<Variable name="StoryGroup4Name" description="اسم المجموعة الرابعة" type="string" default="قصص بوليسية" value="قصص بوليسية"/>
-<Variable name="StoryGroup4Labels" description="تصنيفات المجموعة الرابعة مفصولة بفواصل" type="string" default="قصص بوليسية" value="قصص بوليسية"/>
-<Variable name="StoryGroup5Name" description="اسم المجموعة الخامسة" type="string" default="قصص رومانسية" value="قصص رومانسية"/>
-<Variable name="StoryGroup5Labels" description="تصنيفات المجموعة الخامسة مفصولة بفواصل" type="string" default="قصص رومانسية" value="قصص رومانسية"/>
-<Variable name="StoryGroup6Name" description="اسم المجموعة السادسة" type="string" default="قصص نجاح وملهمة" value="قصص نجاح وملهمة"/>
-<Variable name="StoryGroup6Labels" description="تصنيفات المجموعة السادسة مفصولة بفواصل" type="string" default="نجاح,قصص نجاح,معجزات ونجاة" value="نجاح,قصص نجاح,معجزات ونجاة"/>
+<Variable name="StoryGroup1Name" description="اسم المجموعة 1 — عدّله من إعدادات المظهر" type="string" default="" value=""/>
+<Variable name="StoryGroup1Labels" description="تصنيفات المجموعة 1 مفصولة بفواصل — عدّلها من إعدادات المظهر" type="string" default="" value=""/>
+<Variable name="StoryGroup2Name" description="اسم المجموعة 2 — عدّله من إعدادات المظهر" type="string" default="" value=""/>
+<Variable name="StoryGroup2Labels" description="تصنيفات المجموعة 2 مفصولة بفواصل — عدّلها من إعدادات المظهر" type="string" default="" value=""/>
+<Variable name="StoryGroup3Name" description="اسم المجموعة 3 — عدّله من إعدادات المظهر" type="string" default="" value=""/>
+<Variable name="StoryGroup3Labels" description="تصنيفات المجموعة 3 مفصولة بفواصل — عدّلها من إعدادات المظهر" type="string" default="" value=""/>
+<Variable name="StoryGroup4Name" description="اسم المجموعة 4 — عدّله من إعدادات المظهر" type="string" default="" value=""/>
+<Variable name="StoryGroup4Labels" description="تصنيفات المجموعة 4 مفصولة بفواصل — عدّلها من إعدادات المظهر" type="string" default="" value=""/>
+<Variable name="StoryGroup5Name" description="اسم المجموعة 5 — عدّله من إعدادات المظهر" type="string" default="" value=""/>
+<Variable name="StoryGroup5Labels" description="تصنيفات المجموعة 5 مفصولة بفواصل — عدّلها من إعدادات المظهر" type="string" default="" value=""/>
+<Variable name="StoryGroup6Name" description="اسم المجموعة 6 — عدّله من إعدادات المظهر" type="string" default="" value=""/>
+<Variable name="StoryGroup6Labels" description="تصنيفات المجموعة 6 مفصولة بفواصل — عدّلها من إعدادات المظهر" type="string" default="" value=""/>
 <Variable name="AdPreview" description="إظهار صناديق معاينة أماكن الإعلانات" type="length" default="1px" min="1px" max="2px" value="1px"/>
 <Variable name="AdPreviewText" description="نص صناديق معاينة الإعلانات" type="string" default="مكان الإعلان — سيظهر هنا بعد التفعيل" value="مكان الإعلان — سيظهر هنا بعد التفعيل"/>
+<Variable name="ShowReadingProgress" description="إظهار شريط تقدم القراءة داخل المقال" type="length" default="2px" min="1px" max="2px" value="2px"/>
+<Variable name="ShowArticleTools" description="إظهار أدوات المقال" type="length" default="2px" min="1px" max="2px" value="2px"/>
+<Variable name="ShowPrintButton" description="إظهار زر طباعة المقال" type="length" default="2px" min="1px" max="2px" value="2px"/>
+<Variable name="ShowCopyLinkButton" description="إظهار زر نسخ رابط المقال" type="length" default="2px" min="1px" max="2px" value="2px"/>
+<Variable name="ShowReportButton" description="إظهار زر الإبلاغ عن خطأ" type="length" default="2px" min="1px" max="2px" value="2px"/>
+<Variable name="ShowArticleNavigation" description="إظهار المقال السابق والتالي" type="length" default="2px" min="1px" max="2px" value="2px"/>
+<Variable name="ShowCopyAttribution" description="إضافة اسم ورابط المدونة عند نسخ النص" type="length" default="2px" min="1px" max="2px" value="2px"/>
+<Variable name="ReportEmail" description="البريد الذي يستقبل بلاغات الأخطاء" type="string" default="" value=""/>
+<Variable name="ShowStoryMeta" description="إظهار معلومات القصة والسلسلة" type="length" default="2px" min="1px" max="2px" value="2px"/>
+<Variable name="ShowStorySeries" description="إظهار فهرس أجزاء السلسلة" type="length" default="2px" min="1px" max="2px" value="2px"/>
 
 <Variable name="content.width" description="Content width" type="length" min="992px" max="1300px" default="1100px" value="1100px"/>
 <Variable name="sidebar.width" description="Sidebar width" type="length" min="250px" max="480px" default="330px" value="330px"/>
@@ -569,6 +579,9 @@ aside .post-frome-tag .headline .Lapel-Link,footer .post-frome-tag .headline .La
 @media screen and (max-width:480px){
 .postcat{padding:0 5px;font-size:11px;line-height:22px;height:22px}
 }
+
+/* V5 article tools and reading experience */
+.reading-progress-wrap{position:fixed;top:0;left:0;right:0;height:4px;background:transparent;z-index:10000;pointer-events:none}.reading-progress-bar{display:block;width:0;height:100%;background:var(--minColor);transition:width .08s linear}.article-tools{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0;padding:12px;background:var(--MinBgColor);border:1px solid var(--Borderes3);border-radius:8px}.article-tools button,.article-tools a{appearance:none;border:1px solid var(--Borderes3);background:var(--whiteColor);color:var(--TitColor);border-radius:5px;padding:9px 12px;font:inherit;font-size:13px;cursor:pointer;text-decoration:none}.article-tools button:hover,.article-tools a:hover{border-color:var(--minColor);color:var(--minColor)}.article-prevnext{display:flex;gap:12px;justify-content:space-between;margin:18px 0;padding:12px 0;border-top:1px solid var(--Borderes3);border-bottom:1px solid var(--Borderes3)}.article-prevnext a{flex:1;display:block;padding:10px;border-radius:6px;background:var(--MinBgColor);color:var(--TitColor);font-size:14px}.article-prevnext a[data-nav='next']{text-align:left}.article-prevnext a[data-nav='prev']{text-align:right}.article-prevnext a:hover{color:var(--minColor)}.article-prevnext[hidden],.article-prevnext a[hidden]{display:none!important}.post-body img{max-width:100%;height:auto}.author-posts{clear:both}.article-tools [data-action='report-error']{color:#9b3a3a}.v5-toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);z-index:10001;background:var(--TitColor);color:var(--whiteColor);padding:10px 16px;border-radius:6px;font-size:13px;box-shadow:0 4px 15px rgb(0 0 0 / 20%)}.story-meta-box{margin:15px 0;padding:14px;background:var(--MinBgColor);border:1px solid var(--Borderes3);border-radius:8px}.story-meta-grid{display:flex;flex-wrap:wrap;gap:8px}.story-meta-item{display:inline-flex;gap:5px;align-items:center;padding:7px 10px;background:var(--whiteColor);border-radius:5px;font-size:13px;color:var(--TitColor)}.story-meta-label{opacity:.7}.story-summary-box,.story-characters-box{margin:15px 0;padding:14px 16px;border-right:4px solid var(--minColor);background:var(--Borderes);border-radius:5px;color:var(--txtColor);line-height:1.9}.story-summary-box h3,.story-characters-box h3,.story-series-box h3{font-size:17px;color:var(--TitColor);margin-bottom:7px}.story-series-box{margin:15px 0;padding:14px;background:var(--MinBgColor);border:1px solid var(--Borderes3);border-radius:8px}.story-series-list{display:grid;gap:6px}.story-series-list a{display:block;padding:8px 10px;border-radius:5px;color:var(--TitColor);background:var(--Borderes)}.story-series-list a:hover{color:var(--minColor)}.story-meta-box:empty,.story-series-box:empty{display:none}@media(max-width:600px){.story-meta-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.story-meta-item{justify-content:center;text-align:center}}@media print{.reading-progress-wrap,.article-tools,.article-prevnext,header,footer,aside,.Dmode,#backTop,.pSh,.commentsection{display:none!important}}@media(max-width:600px){.article-tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.article-tools button,.article-tools a{text-align:center;padding:10px 6px}.article-prevnext{gap:7px}.article-prevnext a{font-size:12px;padding:8px}}
 ]]></b:skin><style>/*<![CDATA[*/@font-face{font-family:'Tajawal';font-style:normal;font-weight:500;font-display:swap;src:local('Tajawal Medium'),local('Tajawal-Medium'),url(https://fonts.gstatic.com/s/tajawal/v3/Iurf6YBj_oCad4k1l8KiHrRpiYlJ.woff2) format('woff2');unicode-range:U+0600-06FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE80-FEFC}@font-face{font-family:'Tajawal';font-style:normal;font-weight:500;font-display:swap;src:local('Tajawal Medium'),local('Tajawal-Medium'),url(https://fonts.gstatic.com/s/tajawal/v3/Iurf6YBj_oCad4k1l8KiHrFpiQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Tajawal';font-style:normal;font-weight:700;font-display:swap;src:local('Tajawal Bold'),local('Tajawal-Bold'),url(https://fonts.gstatic.com/s/tajawal/v3/Iurf6YBj_oCad4k1l4qkHrRpiYlJ.woff2) format('woff2');unicode-range:U+0600-06FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE80-FEFC}@font-face{font-family:'Tajawal';font-style:normal;font-weight:700;font-display:swap;src:local('Tajawal Bold'),local('Tajawal-Bold'),url(https://fonts.gstatic.com/s/tajawal/v3/Iurf6YBj_oCad4k1l4qkHrFpiQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}body *:not(.fa),.HeaderBOT #menu ul li a{font-family:'Tajawal',sans-serif}.post-body h1,.post-body h2,.post-body h3,.post-body h4{font-family:'Tajawal',sans-serif!important}.post-amp .entry-title.topic-title{font-family:'Tajawal',sans-serif!important}nav.nav-par ul li a{font-family:'Tajawal',sans-serif!important}/*]]>*/</style>
       
     </b:if>
@@ -1690,22 +1703,10 @@ textarea.code{min-height:200px;resize:vertical;width:100%;border-radius:3px;padd
           </b:includable>
           <b:includable id='HeaderLinks'>
             <b:section id='menu' maxwidgets='1' showaddelement='no'>
-              <b:widget id='LinkList001' locked='true' title='القائمة الرئيسية' type='LinkList' version='2' visible='true'>
+              <b:widget id='LinkList001' locked='false' title='القائمة الرئيسية — أضف التصنيفات من التخطيط' type='LinkList' version='2' visible='true'>
                 <b:widget-settings>
-                  <b:widget-setting name='link-5'>https://www.almosaitiron.com/search/label/%D8%AA%D8%B1%D9%8A%D9%86%D8%AF</b:widget-setting>
-                  <b:widget-setting name='link-3'>https://www.almosaitiron.com/search/label/%D8%AD%D9%88%D9%84%20%D8%A7%D9%84%D8%B9%D8%A7%D9%84%D9%85</b:widget-setting>
-                  <b:widget-setting name='link-4'>https://www.almosaitiron.com/search/label/%D9%82%D8%B5%D8%B5%20%D8%A5%D9%86%D8%B3%D8%A7%D9%86%D9%8A%D8%A9%20%D9%88%D9%88%D8%A7%D9%82%D8%B9%D9%8A%D8%A9</b:widget-setting>
-                  <b:widget-setting name='text-1'>غرائب و عجائب</b:widget-setting>
-                  <b:widget-setting name='text-0'>القائمة الرئيسية</b:widget-setting>
-                  <b:widget-setting name='text-3'>حول العالم</b:widget-setting>
-                  <b:widget-setting name='text-2'>معجزات و نجاة</b:widget-setting>
-                  <b:widget-setting name='text-5'>ترايند</b:widget-setting>
-                  <b:widget-setting name='text-4'>قصص واقعية و انسانية </b:widget-setting>
-                  <b:widget-setting name='shownum'>10</b:widget-setting>
+                  <b:widget-setting name='shownum'>30</b:widget-setting>
                   <b:widget-setting name='sorting'>NONE</b:widget-setting>
-                  <b:widget-setting name='link-1'>https://www.almosaitiron.com/search/label/%D8%BA%D8%B1%D8%A7%D8%A6%D8%A8%20%D9%88%D8%B9%D8%AC%D8%A7%D8%A6%D8%A8</b:widget-setting>
-                  <b:widget-setting name='link-2'>https://www.almosaitiron.com/search/label/%D9%85%D8%B9%D8%AC%D8%B2%D8%A7%D8%AA%20%D9%88%D9%86%D8%AC%D8%A7%D8%A9</b:widget-setting>
-                  <b:widget-setting name='link-0'>https://www.almosaitiron.com/</b:widget-setting>
                 </b:widget-settings>
                 <b:includable id='main'><b:include name='content'/></b:includable>
                 <b:includable id='content'>
@@ -2018,6 +2019,14 @@ textarea.code{min-height:200px;resize:vertical;width:100%;border-radius:3px;padd
                             <b:include data='post' name='article-author'/>
                           </div>
                         </div>
+                        <b:if cond='data:skin.vars.ShowArticleTools == &quot;2px&quot;'>
+                          <div class='article-tools' aria-label='أدوات المقال'>
+                            <b:if cond='data:skin.vars.ShowPrintButton == &quot;2px&quot;'><button data-action='print' type='button'>طباعة المقال</button></b:if>
+                            <b:if cond='data:skin.vars.ShowCopyLinkButton == &quot;2px&quot;'><button data-action='copy-link' type='button'>نسخ الرابط</button></b:if>
+                            <b:if cond='data:skin.vars.ShowReportButton == &quot;2px&quot;'><button data-action='report-error' type='button'>الإبلاغ عن خطأ</button></b:if>
+                          </div>
+                        </b:if>
+                        <b:if cond='data:skin.vars.ShowStoryMeta == &quot;2px&quot;'><div class='story-meta-box' data-story-meta='true'/></b:if>
                         <div class='TocList'/>
 
                       </div>
@@ -2033,6 +2042,7 @@ textarea.code{min-height:200px;resize:vertical;width:100%;border-radius:3px;padd
                         <b:include data='post' name='sp-aboutPostAuthor'/>
 
                           <b:include cond='data:view.isPost' data='post' name='sp-RelatedPosts'/>
+                          <b:if cond='data:skin.vars.ShowStorySeries == &quot;2px&quot;'><div class='story-series-box' data-story-series='true'/></b:if>
                       </div>
 
                       <b:if cond='data:post.allowComments'>
@@ -2303,7 +2313,12 @@ textarea.code{min-height:200px;resize:vertical;width:100%;border-radius:3px;padd
                   </div>
                 </b:includable>
                 <b:includable id='sp-navigation' var='post'>
-
+                  <b:if cond='data:skin.vars.ShowArticleNavigation == &quot;2px&quot;'>
+                    <nav class='article-prevnext' aria-label='التنقل بين المقالات'>
+                      <a data-nav='prev' hidden='hidden' href='#'></a>
+                      <a data-nav='next' hidden='hidden' href='#'></a>
+                    </nav>
+                  </b:if>
                 </b:includable>
                 <b:includable id='sp-nextprev'>
 
@@ -2425,7 +2440,7 @@ img{height:auto}
 .post-body img{content-visibility:auto}
 .social a svg,.social-static a svg{pointer-events:none}
 @media (prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
-.story-groups{margin:25px 0}.story-groups .headline{margin-bottom:18px}.story-group{background:var(--MinBgColor);border:1px solid var(--Borderes3);border-radius:8px;margin:0 0 12px;overflow:hidden;box-shadow:0 2px 6px rgb(9 32 76 / 4%)}.story-group summary{cursor:pointer;list-style:none;padding:16px 20px;color:var(--TitColor);font-size:17px;font-weight:600;position:relative}.story-group summary::-webkit-details-marker{display:none}.story-group summary:after{content:'+';position:absolute;left:18px;font-size:24px;line-height:18px;color:var(--minColor);transition:transform .2s}.story-group[open] summary:after{content:'−'}.story-group summary:focus-visible{background:var(--Borderes)}.story-group-content{padding:0 15px 15px}.story-group-status{padding:15px;color:var(--SanColor);font-size:14px}.story-group-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.story-group-card{display:block;min-width:0;color:var(--TitColor);border:1px solid var(--Borderes3);border-radius:7px;overflow:hidden;background:var(--whiteColor);transition:transform .2s ease,box-shadow .2s ease}.story-group-card:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgb(9 32 76 / 10%)}.story-group-card img{display:block;width:100%;height:150px;object-fit:cover;background:var(--Borderes)}.story-group-card-title{display:block;padding:11px 12px;line-height:1.55;font-size:14px}.ad-preview-box{display:flex;align-items:center;justify-content:center;min-height:90px;margin:12px 0;padding:18px;border:2px dashed var(--minColor);border-radius:6px;background:color-mix(in srgb,var(--minColor) 8%,transparent);color:var(--minColor);font-size:14px;text-align:center}.ad-preview-box small{display:block;margin-top:5px;opacity:.75}@media(max-width:700px){.story-group-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.story-group-card img{height:120px}.story-group summary{padding:14px 16px}}@media(max-width:420px){.story-group-grid{grid-template-columns:1fr}.story-group-card img{height:180px}}
+.story-groups{margin:25px 0}.story-groups .headline{margin-bottom:18px}.story-group{background:var(--MinBgColor);border:1px solid var(--Borderes3);border-radius:8px;margin:0 0 12px;overflow:hidden;box-shadow:0 2px 6px rgb(9 32 76 / 4%)}.story-group summary{cursor:pointer;list-style:none;padding:16px 20px;color:var(--TitColor);font-size:17px;font-weight:600;position:relative}.story-group summary::-webkit-details-marker{display:none}.story-group summary:after{content:'+';position:absolute;left:18px;font-size:24px;line-height:18px;color:var(--minColor);transition:transform .2s}.story-group[open] summary:after{content:'−'}.story-group summary:focus-visible{background:var(--Borderes)}.story-group-content{padding:0 15px 15px}.story-group-status{padding:15px;color:var(--SanColor);font-size:14px}.story-group-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.story-group-card{display:block;min-width:0;color:var(--TitColor);border:1px solid var(--Borderes3);border-radius:7px;overflow:hidden;background:var(--whiteColor);transition:transform .2s ease,box-shadow .2s ease}.story-group-card:hover{transform:translateY(-2px);box-shadow:0 5px 15px rgb(9 32 76 / 10%)}.story-group-card img{display:block;width:100%;height:150px;object-fit:cover;background:var(--Borderes)}.story-group-card-title{display:block;padding:11px 12px;line-height:1.55;font-size:14px}.ad-preview-settings{display:none!important}.ad-preview-box{display:block;width:100%;min-height:120px;margin:12px 0;padding:0;border:2px dashed var(--minColor);border-radius:6px;background:color-mix(in srgb,var(--minColor) 8%,transparent);color:transparent;text-align:center}.ad-preview-box small{display:block;margin-top:5px;opacity:.75}@media(max-width:700px){.story-group-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.story-group-card img{height:120px}.story-group summary{padding:14px 16px}}@media(max-width:420px){.story-group-grid{grid-template-columns:1fr}.story-group-card img{height:180px}}
   </style>
   <!-- LINT.ThenChange(//depot/google3/java/com/google/blogger/b2/layouts/widgets/v2-style.css) -->
 </b:includable>
@@ -3007,17 +3022,47 @@ img{height:auto}
         <div class='ad-preview-settings' expr:data-text='data:skin.vars.AdPreviewText'/>
         <script><![CDATA[
 (function(){
-  function addPreview(){var settings=document.querySelector('.ad-preview-settings'),label=settings&&settings.getAttribute('data-text')||'مكان الإعلان — سيظهر هنا بعد التفعيل';document.querySelectorAll('.siteAds').forEach(function(slot){if(slot.querySelector('iframe,ins,script,.ad-preview-box')||slot.textContent.trim())return;var box=document.createElement('div');box.className='ad-preview-box';box.innerHTML='<span>'+label+'<br><small>فعّل الإعلان من Blogger لاستبدال هذا الصندوق بالكود الفعلي</small></span>';slot.appendChild(box);});}
+  function addPreview(){document.querySelectorAll('.siteAds').forEach(function(slot){if(slot.querySelector('iframe,ins,script,.ad-preview-box')||slot.textContent.trim())return;var box=document.createElement('div');box.className='ad-preview-box';box.setAttribute('role','img');box.setAttribute('aria-label','مكان معاينة الإعلان');slot.appendChild(box);});}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',addPreview);else addPreview();
   setTimeout(addPreview,1200);
 })();
+(function(){function cleanNestedMenu(){document.querySelectorAll('#menu .sitem > a').forEach(function(a){a.textContent=a.textContent.replace(/^\s*\+/,'').trim();});}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',cleanNestedMenu);else cleanNestedMenu();})();
         ]]></script>
+      </b:if>
+      <b:if cond='data:view.isPost and data:skin.vars.ShowReadingProgress == &quot;2px&quot;'>
+        <div class='reading-progress-wrap' aria-hidden='true'><span class='reading-progress-bar'/></div>
       </b:if>
       </div>
 
 
 
 
+    <div expr:data-copy-attribution='data:skin.vars.ShowCopyAttribution' expr:data-report-email='data:skin.vars.ReportEmail' hidden='hidden'></div>
+<script><![CDATA[
+(function(){
+  'use strict';
+  function articleRoot(){return document.querySelector('.post-body[data-article-content="true"]')||document.querySelector('.post-body');}
+  function toast(text){var t=document.createElement('div');t.className='v5-toast';t.textContent=text;document.body.appendChild(t);setTimeout(function(){t.remove();},1800);}
+  function initReading(){var root=articleRoot(),bar=document.querySelector('.reading-progress-bar');if(!root||!bar)return;var update=function(){var rect=root.getBoundingClientRect(),total=Math.max(1,root.scrollHeight-window.innerHeight),passed=Math.min(total,Math.max(0,-rect.top));bar.style.width=(passed/total*100)+'%';};window.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update);update();}
+  function initImages(){var root=articleRoot();if(!root)return;var imgs=root.querySelectorAll('img');imgs.forEach(function(img,i){img.loading=i===0?'eager':'lazy';img.decoding='async';if(i===0)img.setAttribute('fetchpriority','high');if(!img.alt)img.alt=document.title;});}
+  function initCopy(){var root=articleRoot();if(!root)return;document.addEventListener('copy',function(e){var sel=window.getSelection();if(!sel||!sel.rangeCount||!sel.toString().trim()||!root.contains(sel.anchorNode))return;var text=sel.toString();var setting=document.querySelector('[data-copy-attribution]');if(!setting||setting.getAttribute('data-copy-attribution')!=='2px')return;var title=document.title,url=location.href;var out=text+'\n\nالمصدر: '+title+'\nالرابط: '+url;if(e.clipboardData){e.preventDefault();e.clipboardData.setData('text/plain',out);}});}
+  function initActions(){document.querySelectorAll('[data-action="copy-link"]').forEach(function(btn){btn.addEventListener('click',function(){var value=location.href;if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(value).then(function(){toast('تم نسخ رابط المقال');});}else{var ta=document.createElement('textarea');ta.value=value;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();toast('تم نسخ رابط المقال');}});});document.querySelectorAll('[data-action="report-error"]').forEach(function(btn){btn.addEventListener('click',function(){var holder=document.querySelector('[data-report-email]'),email=holder&&holder.getAttribute('data-report-email');if(!email){toast('أضف بريد البلاغات من إعدادات القالب');return;}location.href='mailto:'+email+'?subject='+encodeURIComponent('بلاغ عن خطأ: '+document.title)+'&body='+encodeURIComponent('الرابط: '+location.href+'\n\nوصف الخطأ:');});});}
+  function initPrevNext(){var box=document.querySelector('.article-prevnext'),root=articleRoot();if(!box||!root)return;fetch('/feeds/posts/summary?alt=json&max-results=500').then(function(r){return r.ok?r.json():null;}).then(function(data){var entries=data&&data.feed&&data.feed.entry||[],items=entries.map(function(e){var link=(e.link||[]).find(function(x){return x.rel==='alternate'});return link?{url:link.href,title:e.title&&e.title.$t||''}:null;}).filter(Boolean);var current=location.href.split('#')[0].replace(/\/$/,'');var at=items.findIndex(function(x){return x.url.split('#')[0].replace(/\/$/,'')===current;});if(at<0)return;var pairs=[['prev',items[at+1]],['next',items[at-1]]];pairs.forEach(function(pair){var a=box.querySelector('[data-nav="'+pair[0]+'"]'),item=pair[1];if(!a||!item)return;a.href=item.url;a.textContent=(pair[0]==='prev'?'← المقال السابق: ':'المقال التالي: ')+item.title;a.hidden=false;});}).catch(function(){});}
+  document.addEventListener('DOMContentLoaded',function(){initReading();initImages();initCopy();initActions();initPrevNext();});
+})();
+]]></script>
+<script><![CDATA[
+(function(){
+  'use strict';
+  function esc(v){return String(v||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function labels(){return [].slice.call(document.querySelectorAll('.post-tags a')).map(function(a){return a.textContent.trim();}).filter(Boolean);}
+  function prefixed(items,prefix){var x=items.find(function(v){return v.indexOf(prefix)===0;});return x?x.slice(prefix.length).replace(/^[-:： ]+/,'').trim():'';}
+  function initStoryMeta(){var box=document.querySelector('[data-story-meta]');if(!box)return;var ls=labels(),type=prefixed(ls,'نوع'),level=prefixed(ls,'مستوى'),duration=prefixed(ls,'مدة'),series=prefixed(ls,'سلسلة'),status=prefixed(ls,'حالة'),part=prefixed(ls,'جزء'),author=prefixed(ls,'كاتب');var data=[];[["نوع القصة",type],["المدة",duration],["المستوى",level],["السلسلة",series],["الحالة",status],["الجزء",part],["الكاتب",author]].forEach(function(x){if(x[1])data.push('<span class="story-meta-item"><span class="story-meta-label">'+esc(x[0])+'</span><strong>'+esc(x[1])+'</strong></span>');});box.innerHTML=data.length?'<div class="story-meta-grid">'+data.join('')+'</div>':'';if(series&&document.querySelector('[data-story-series]'))loadSeries(series);}
+  function initStoryText(){var body=document.querySelector('.post-body');if(!body)return;var nodes=[].slice.call(body.querySelectorAll('p,h2,h3,h4,div'));nodes.forEach(function(n){if(n.getAttribute('data-story-parsed'))return;var text=n.textContent.trim(),m=text.match(/^(ملخص القصة|ملخص)\s*[:：]\s*(.+)$/);if(m){var box=document.createElement('section');box.className='story-summary-box';box.innerHTML='<h3>'+esc(m[1])+'</h3><div>'+esc(m[2])+'</div>';n.replaceWith(box);return;}m=text.match(/^(الشخصيات|شخصيات القصة)\s*[:：]\s*(.+)$/);if(m){var box2=document.createElement('section');box2.className='story-characters-box';box2.innerHTML='<h3>'+esc(m[1])+'</h3><div>'+esc(m[2])+'</div>';n.replaceWith(box2);}});}
+  function loadSeries(series){var host=document.querySelector('[data-story-series]');if(!host)return;var wanted='سلسلة-'+series;fetch('/feeds/posts/summary?alt=json&max-results=500').then(function(r){return r.ok?r.json():null;}).then(function(data){var entries=data&&data.feed&&data.feed.entry||[],items=[];entries.forEach(function(e){var cats=(e.category||[]).map(function(c){return c.term;});if(cats.indexOf(wanted)<0&&cats.indexOf('سلسلة: '+series)<0)return;var link=(e.link||[]).find(function(x){return x.rel==='alternate'});if(link)items.push({url:link.href,title:e.title&&e.title.$t||''});});if(!items.length)return;host.innerHTML='<h3>فهرس أجزاء السلسلة</h3><div class="story-series-list">'+items.map(function(x){return '<a href="'+esc(x.url)+'">'+esc(x.title)+'</a>';}).join('')+'</div>';}).catch(function(){});}
+  document.addEventListener('DOMContentLoaded',function(){initStoryMeta();initStoryText();});
+})();
+]]></script>
     <b:include name='themeFunctions'/>
 
     <svg class='hide'>
