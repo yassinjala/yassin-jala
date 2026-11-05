@@ -228,5 +228,21 @@
   },
   "image_note": "",
   "rights_note": "لا يعني ظهور الصورة في المقال أن إعادة نشرها مسموحة. تحقق من الترخيص أو الإذن قبل النشر.",
-  "verification_note": "أعيدت صياغة المقال اعتمادًا على النص المستخرج فقط؛ لم يتم التحقق من الوقائع بشكل مستقل. المراجعة الآلية في article_review قد تخطئ، فراجع النص قبل النشر."
+  "verification_note": "أعيدت صياغة المقال اعتمادًا على النص المستخرج فقط؛ لم يتم التحقق من الوقائع بشكل مستقل. المراجعة الآلية في article_review قد تخطئ، فراجع النص قبل النشر.",
+  "blogger": {
+    "via": "make",
+    "post_id": "8637362491796159267",
+    "url": "https://www.almosaitiron.com/2026/11/pitt.html",
+    "status": "LIVE",
+    "labels": [
+      "تريند"
+    ],
+    "action": "insert",
+    "images": {
+      "thumbnail.jpg": "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@dc583038c895e8f6cbbf5a0f3b6886fad117a425/output/6451a2abbe20/thumbnail.jpg",
+      "article_middle.jpg": "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@dc583038c895e8f6cbbf5a0f3b6886fad117a425/output/6451a2abbe20/article_middle.jpg"
+    },
+    "commit": "dc583038c895e8f6cbbf5a0f3b6886fad117a425",
+    "published_at_utc": "2026-11-05T19:45:28.793494+00:00"
+  }
 }
