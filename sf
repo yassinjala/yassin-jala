@@ -1669,7 +1669,7 @@ textarea.code{min-height:200px;resize:vertical;width:100%;border-radius:3px;padd
             <b:section id='pages' maxwidgets='1' showaddelement='no'>
               <b:widget id='PageList1' locked='true' title='صفحات المدونة' type='PageList' version='2' visible='true'>
                 <b:widget-settings>
-                  <b:widget-setting name='pageListJson'><![CDATA[{"link1":{"href":"https://www.almosaitiron.com/p/blog-page_357.html","position":1,"title":"شروط الاستخدام"},"link0":{"href":"https://www.almosaitiron.com/p/blog-page_548.html","position":0,"title":"سياسة الخصوصية"},"link5":{"href":"https://www.almosaitiron.com/p/blog-page_16.html","position":5,"title":"من نحن"},"link4":{"href":"https://www.almosaitiron.com/p/blog-page_173.html","position":4,"title":"الكوكيز"},"link3":{"href":"https://www.almosaitiron.com/p/blog-page_484.html","position":3,"title":"إخلاء المسؤولية"},"link2":{"href":"https://www.almosaitiron.com/p/blog-page_496.html","position":2,"title":"سياسة حقوق النشر وإزالة المحتوى"},"link6":{"href":"https://www.almosaitiron.com/p/blog-page_180.html","position":6,"title":"اتصل بنا"}}]]></b:widget-setting>
+                  <b:widget-setting name='pageListJson'><![CDATA[{"link1":{"href":"/p/blog-page_357.html","position":1,"title":"شروط الاستخدام"},"link0":{"href":"/p/blog-page_548.html","position":0,"title":"سياسة الخصوصية"},"link5":{"href":"/p/blog-page_16.html","position":5,"title":"من نحن"},"link4":{"href":"/p/blog-page_173.html","position":4,"title":"الكوكيز"},"link3":{"href":"/p/blog-page_484.html","position":3,"title":"إخلاء المسؤولية"},"link2":{"href":"/p/blog-page_496.html","position":2,"title":"سياسة حقوق النشر وإزالة المحتوى"},"link6":{"href":"/p/blog-page_180.html","position":6,"title":"اتصل بنا"}}]]></b:widget-setting>
                   <b:widget-setting name='homeTitle'>الصفحة الرئيسية</b:widget-setting>
                 </b:widget-settings>
                 <b:includable id='main'><b:include name='content'/></b:includable>
@@ -2144,14 +2144,14 @@ textarea.code{min-height:200px;resize:vertical;width:100%;border-radius:3px;padd
 
                             <div data-text='Email'>
                               <!-- Send to email -->
-                              <a aria-label='Email' expr:href='&quot;mailto:?body=&quot; + data:blog.url.canonical' target='_blank' title='email'>
+                              <a aria-label='Email' expr:href='&quot;mailto:?body=&quot; + data:blog.url.canonical' rel='noopener noreferrer' target='_blank' title='email'>
                                 <svg class='n-line'><use href='#ic-email'/></svg>
                               </a>
                             </div>
 
                             <div data-text='reddit'>
                               <!-- Send to reddit -->
-                              <a aria-label='reddit' expr:href='&quot;https://www.reddit.com/submit?url=&quot; + data:blog.url.canonical' target='_blank' title='reddit'>
+                              <a aria-label='reddit' expr:href='&quot;https://www.reddit.com/submit?url=&quot; + data:blog.url.canonical' rel='noopener noreferrer' target='_blank' title='reddit'>
                                 <svg class='n-line'><use href='#ic-reddit'/></svg>
                               </a>
                             </div>
@@ -2334,7 +2334,7 @@ textarea.code{min-height:200px;resize:vertical;width:100%;border-radius:3px;padd
                   <b:if cond='data:view.isPost'>
                     <!-- Quick Edit -->
                     <span expr:class='&quot;edit-post item-control &quot; + data:post.adminClass'>
-                      <a expr:href='&quot;https://www.blogger.com/blog/post/edit/&quot; + data:blog.blogId + &quot;/&quot; + data:post.id' target='_blank'> <b:if cond='data:blog.languageDirection == &quot;ltr&quot;'>
+                      <a expr:href='&quot;https://www.blogger.com/blog/post/edit/&quot; + data:blog.blogId + &quot;/&quot; + data:post.id' rel='noopener noreferrer' target='_blank'> <b:if cond='data:blog.languageDirection == &quot;ltr&quot;'>
 
                         <b:else/>
 
@@ -2343,7 +2343,7 @@ textarea.code{min-height:200px;resize:vertical;width:100%;border-radius:3px;padd
                   <b:if cond='data:view.isPage'>
                     <!-- Quick Edit -->
                     <span expr:class='&quot;edit-post item-control &quot; + data:post.adminClass'>
-                      <a expr:href='&quot;https://www.blogger.com/blog/page/edit/&quot; + data:blog.blogId + &quot;/&quot; + data:post.id' target='_blank'> <b:if cond='data:blog.languageDirection == &quot;ltr&quot;'>
+                      <a expr:href='&quot;https://www.blogger.com/blog/page/edit/&quot; + data:blog.blogId + &quot;/&quot; + data:post.id' rel='noopener noreferrer' target='_blank'> <b:if cond='data:blog.languageDirection == &quot;ltr&quot;'>
 
                         <b:else/>
 
@@ -2800,7 +2800,7 @@ img{height:auto}
             <b:section class='footer-col' id='footer-col2'>
               <b:widget id='PageList2' locked='false' title='الصفحات القانونية' type='PageList' visible='true'>
                 <b:widget-settings>
-                  <b:widget-setting name='pageListJson'><![CDATA[{"link1":{"href":"https://www.almosaitiron.com/p/blog-page_548.html","position":1,"title":"سياسة الخصوصية"},"link0":{"href":"https://www.almosaitiron.com/","position":0,"title":"القائمة الرئيسية"},"link5":{"href":"https://www.almosaitiron.com/p/blog-page_173.html","position":5,"title":"الكوكيز"},"link4":{"href":"https://www.almosaitiron.com/p/blog-page_496.html","position":4,"title":"سياسة حقوق النشر وإزالة المحتوى"},"link3":{"href":"https://www.almosaitiron.com/p/blog-page_484.html","position":3,"title":"إخلاء المسؤولية"},"link2":{"href":"https://www.almosaitiron.com/p/blog-page_357.html","position":2,"title":"شروط الاستخدام"},"link7":{"href":"https://www.almosaitiron.com/p/blog-page_180.html","position":7,"title":"اتصل بنا"},"link6":{"href":"https://www.almosaitiron.com/p/blog-page_16.html","position":6,"title":"من نحن"}}]]></b:widget-setting>
+                  <b:widget-setting name='pageListJson'><![CDATA[{"link1":{"href":"/p/blog-page_548.html","position":1,"title":"سياسة الخصوصية"},"link0":{"href":"/","position":0,"title":"القائمة الرئيسية"},"link5":{"href":"/p/blog-page_173.html","position":5,"title":"الكوكيز"},"link4":{"href":"/p/blog-page_496.html","position":4,"title":"سياسة حقوق النشر وإزالة المحتوى"},"link3":{"href":"/p/blog-page_484.html","position":3,"title":"إخلاء المسؤولية"},"link2":{"href":"/p/blog-page_357.html","position":2,"title":"شروط الاستخدام"},"link7":{"href":"/p/blog-page_180.html","position":7,"title":"اتصل بنا"},"link6":{"href":"/p/blog-page_16.html","position":6,"title":"من نحن"}}]]></b:widget-setting>
                   <b:widget-setting name='homeTitle'>الصفحة الرئيسية</b:widget-setting>
                 </b:widget-settings>
                 <b:includable id='main'>
@@ -2906,12 +2906,12 @@ img{height:auto}
             </div>
             <div class='blog-content'>
               <div class='blog-title'>
-                <a expr:href='data:item.blogUrl' target='_blank'><data:item.blogTitle/></a>
+                <a expr:href='data:item.blogUrl' rel='noopener noreferrer' target='_blank'><data:item.blogTitle/></a>
               </div>
               <div class='item-content'>
                 <b:if cond='data:showItemThumbnail and data:item.itemThumbnail'>
                   <div class='item-thumbnail'>
-                    <a expr:href='data:item.blogUrl' target='_blank'>
+                    <a expr:href='data:item.blogUrl' rel='noopener noreferrer' target='_blank'>
                       <img alt='' border='0' expr:height='data:item.itemThumbnail.height' expr:src='data:item.itemThumbnail.url' expr:width='data:item.itemThumbnail.width'/>
                     </a>
                   </div>
@@ -2919,7 +2919,7 @@ img{height:auto}
                 <b:if cond='data:showItemTitle'>
                   <span class='item-title'>
                     <b:if cond='data:item.itemUrl != &quot;&quot;'>
-                      <a expr:href='data:item.itemUrl' target='_blank'>
+                      <a expr:href='data:item.itemUrl' rel='noopener noreferrer' target='_blank'>
                         <data:item.itemTitle/></a>
                     <b:else/>
                       <data:item.itemTitle/>
@@ -2984,7 +2984,7 @@ img{height:auto}
                 All rights reserved
                 <b:else/>
                 جميع الحقوق محفوظة
-                </b:if> &#169;</span><a expr:href='data:blog.homepageUrl' id='7qok' target='_blank'><data:blog.title/></a>
+                </b:if> &#169;</span><a expr:href='data:blog.homepageUrl' id='7qok' rel='noopener noreferrer' target='_blank'><data:blog.title/></a>
             </div>
             <div class='shmal'>
               <b:section id='footer-social' maxwidgets='1' showaddelement='no'>
@@ -3045,7 +3045,7 @@ img{height:auto}
   function toast(text){var t=document.createElement('div');t.className='v5-toast';t.textContent=text;document.body.appendChild(t);setTimeout(function(){t.remove();},1800);}
   function initReading(){var root=articleRoot(),bar=document.querySelector('.reading-progress-bar');if(!root||!bar)return;var update=function(){var rect=root.getBoundingClientRect(),total=Math.max(1,root.scrollHeight-window.innerHeight),passed=Math.min(total,Math.max(0,-rect.top));bar.style.width=(passed/total*100)+'%';};window.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update);update();}
   function initImages(){var root=articleRoot();if(!root)return;var imgs=root.querySelectorAll('img');imgs.forEach(function(img,i){img.loading=i===0?'eager':'lazy';img.decoding='async';if(i===0)img.setAttribute('fetchpriority','high');if(!img.alt)img.alt=document.title;});}
-  function initCopy(){var root=articleRoot();if(!root)return;document.addEventListener('copy',function(e){var sel=window.getSelection();if(!sel||!sel.rangeCount||!sel.toString().trim()||!root.contains(sel.anchorNode))return;var text=sel.toString();var setting=document.querySelector('[data-copy-attribution]');if(!setting||setting.getAttribute('data-copy-attribution')!=='2px')return;var title=document.title,url=location.href;var out=text+'\n\nالمصدر: '+title+'\nالرابط: '+url;if(e.clipboardData){e.preventDefault();e.clipboardData.setData('text/plain',out);}});}
+  function initCopy(){var root=articleRoot();if(!root)return;document.addEventListener('copy',function(e){var sel=window.getSelection();if(!sel||!sel.rangeCount||!sel.toString().trim()||!root.contains(sel.anchorNode))return;var text=sel.toString();var setting=document.querySelector('[data-copy-attribution]');if(!setting||setting.getAttribute('data-copy-attribution')!=='2px')return;var title=document.title,url=location.href,siteMeta=document.querySelector('meta[property="og:site_name"]'),site=siteMeta&&siteMeta.getAttribute('content')||location.hostname,blog=location.origin;var out=text+'\n\nالمصدر: '+title+'\nاسم المدونة: '+site+'\nرابط المدونة: '+blog+'\nرابط المقال: '+url;if(e.clipboardData){e.preventDefault();e.clipboardData.setData('text/plain',out);}});}
   function initActions(){document.querySelectorAll('[data-action="copy-link"]').forEach(function(btn){btn.addEventListener('click',function(){var value=location.href;if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(value).then(function(){toast('تم نسخ رابط المقال');});}else{var ta=document.createElement('textarea');ta.value=value;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();toast('تم نسخ رابط المقال');}});});document.querySelectorAll('[data-action="report-error"]').forEach(function(btn){btn.addEventListener('click',function(){var holder=document.querySelector('[data-report-email]'),email=holder&&holder.getAttribute('data-report-email');if(!email){toast('أضف بريد البلاغات من إعدادات القالب');return;}location.href='mailto:'+email+'?subject='+encodeURIComponent('بلاغ عن خطأ: '+document.title)+'&body='+encodeURIComponent('الرابط: '+location.href+'\n\nوصف الخطأ:');});});}
   function initPrevNext(){var box=document.querySelector('.article-prevnext'),root=articleRoot();if(!box||!root)return;fetch('/feeds/posts/summary?alt=json&max-results=500').then(function(r){return r.ok?r.json():null;}).then(function(data){var entries=data&&data.feed&&data.feed.entry||[],items=entries.map(function(e){var link=(e.link||[]).find(function(x){return x.rel==='alternate'});return link?{url:link.href,title:e.title&&e.title.$t||''}:null;}).filter(Boolean);var current=location.href.split('#')[0].replace(/\/$/,'');var at=items.findIndex(function(x){return x.url.split('#')[0].replace(/\/$/,'')===current;});if(at<0)return;var pairs=[['prev',items[at+1]],['next',items[at-1]]];pairs.forEach(function(pair){var a=box.querySelector('[data-nav="'+pair[0]+'"]'),item=pair[1];if(!a||!item)return;a.href=item.url;a.textContent=(pair[0]==='prev'?'← المقال السابق: ':'المقال التالي: ')+item.title;a.hidden=false;});}).catch(function(){});}
   document.addEventListener('DOMContentLoaded',function(){initReading();initImages();initCopy();initActions();initPrevNext();});
@@ -3058,8 +3058,8 @@ img{height:auto}
   function labels(){return [].slice.call(document.querySelectorAll('.post-tags a')).map(function(a){return a.textContent.trim();}).filter(Boolean);}
   function prefixed(items,prefix){var x=items.find(function(v){return v.indexOf(prefix)===0;});return x?x.slice(prefix.length).replace(/^[-:： ]+/,'').trim():'';}
   function initStoryMeta(){var box=document.querySelector('[data-story-meta]');if(!box)return;var ls=labels(),type=prefixed(ls,'نوع'),level=prefixed(ls,'مستوى'),duration=prefixed(ls,'مدة'),series=prefixed(ls,'سلسلة'),status=prefixed(ls,'حالة'),part=prefixed(ls,'جزء'),author=prefixed(ls,'كاتب');var data=[];[["نوع القصة",type],["المدة",duration],["المستوى",level],["السلسلة",series],["الحالة",status],["الجزء",part],["الكاتب",author]].forEach(function(x){if(x[1])data.push('<span class="story-meta-item"><span class="story-meta-label">'+esc(x[0])+'</span><strong>'+esc(x[1])+'</strong></span>');});box.innerHTML=data.length?'<div class="story-meta-grid">'+data.join('')+'</div>':'';if(series&&document.querySelector('[data-story-series]'))loadSeries(series);}
-  function initStoryText(){var body=document.querySelector('.post-body');if(!body)return;var nodes=[].slice.call(body.querySelectorAll('p,h2,h3,h4,div'));nodes.forEach(function(n){if(n.getAttribute('data-story-parsed'))return;var text=n.textContent.trim(),m=text.match(/^(ملخص القصة|ملخص)\s*[:：]\s*(.+)$/);if(m){var box=document.createElement('section');box.className='story-summary-box';box.innerHTML='<h3>'+esc(m[1])+'</h3><div>'+esc(m[2])+'</div>';n.replaceWith(box);return;}m=text.match(/^(الشخصيات|شخصيات القصة)\s*[:：]\s*(.+)$/);if(m){var box2=document.createElement('section');box2.className='story-characters-box';box2.innerHTML='<h3>'+esc(m[1])+'</h3><div>'+esc(m[2])+'</div>';n.replaceWith(box2);}});}
-  function loadSeries(series){var host=document.querySelector('[data-story-series]');if(!host)return;var wanted='سلسلة-'+series;fetch('/feeds/posts/summary?alt=json&max-results=500').then(function(r){return r.ok?r.json():null;}).then(function(data){var entries=data&&data.feed&&data.feed.entry||[],items=[];entries.forEach(function(e){var cats=(e.category||[]).map(function(c){return c.term;});if(cats.indexOf(wanted)<0&&cats.indexOf('سلسلة: '+series)<0)return;var link=(e.link||[]).find(function(x){return x.rel==='alternate'});if(link)items.push({url:link.href,title:e.title&&e.title.$t||''});});if(!items.length)return;host.innerHTML='<h3>فهرس أجزاء السلسلة</h3><div class="story-series-list">'+items.map(function(x){return '<a href="'+esc(x.url)+'">'+esc(x.title)+'</a>';}).join('')+'</div>';}).catch(function(){});}
+  function initStoryText(){var body=document.querySelector('.post-body');if(!body)return;var nodes=[].slice.call(body.querySelectorAll('p,h2,h3,h4'));function makeBox(node,label,content,cls){var box=document.createElement('section');box.className=cls;box.innerHTML='<h3>'+esc(label)+'</h3><div>'+esc(content).replace(/\n/g,'<br/>')+'</div>';node.replaceWith(box);}nodes.forEach(function(n){if(!n.parentNode||n.getAttribute('data-story-parsed'))return;var text=(n.innerText||n.textContent||'').trim(),m=text.match(/^(ملخص القصة|ملخص)\s*[:：]?\s*(.*)$/);if(m){var content=m[2]||'',next=n.nextElementSibling;while(next&&!/^(ملخص القصة|ملخص|الشخصيات|شخصيات القصة)\s*[:：]?/.test((next.innerText||next.textContent||'').trim())){content+=(content?'\n':'')+(next.innerText||next.textContent||'').trim();var remove=next;next=next.nextElementSibling;remove.remove();}makeBox(n,m[1],content,'story-summary-box');return;}m=text.match(/^(الشخصيات|شخصيات القصة)\s*[:：]?\s*(.*)$/);if(m){var content2=m[2]||'',next2=n.nextElementSibling;while(next2&&!/^(ملخص القصة|ملخص|الشخصيات|شخصيات القصة)\s*[:：]?/.test((next2.innerText||next2.textContent||'').trim())){content2+=(content2?'\n':'')+(next2.innerText||next2.textContent||'').trim();var remove2=next2;next2=next2.nextElementSibling;remove2.remove();}makeBox(n,m[1],content2,'story-characters-box');}});}
+  function loadSeries(series){var host=document.querySelector('[data-story-series]');if(!host)return;var wanted='سلسلة-'+series;fetch('/feeds/posts/summary?alt=json&max-results=500').then(function(r){return r.ok?r.json():null;}).then(function(data){var entries=data&&data.feed&&data.feed.entry||[],items=[];entries.forEach(function(e){var cats=(e.category||[]).map(function(c){return c.term;});if(cats.indexOf(wanted)<0&&cats.indexOf('سلسلة: '+series)<0)return;var link=(e.link||[]).find(function(x){return x.rel==='alternate'});if(link){var partCat=cats.find(function(c){return /^(جزء|part)[-:： ]*/i.test(c);})||'';var partMatch=partCat.match(/(?:جزء|part)[-:： ]*(\d+)/i);items.push({url:link.href,title:e.title&&e.title.$t||'',part:partMatch?parseInt(partMatch[1],10):999999});}});items.sort(function(a,b){return a.part-b.part||a.title.localeCompare(b.title,'ar');});if(!items.length)return;host.innerHTML='<h3>فهرس أجزاء السلسلة</h3><div class="story-series-list">'+items.map(function(x){return '<a href="'+esc(x.url)+'">'+esc(x.title)+'</a>';}).join('')+'</div>';}).catch(function(){});}
   document.addEventListener('DOMContentLoaded',function(){initStoryMeta();initStoryText();});
 })();
 ]]></script>
@@ -3068,7 +3068,6 @@ img{height:auto}
     <svg class='hide'>
       <b:include name='themeIcons'/>
     </svg>
-
-
-    &lt;noscript id=&#39;blogger-components&#39;&gt;</body>&lt;/noscript&gt;&lt;/body&gt;
+    </body>
 </html>
+
