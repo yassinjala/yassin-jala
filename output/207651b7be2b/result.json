@@ -256,5 +256,21 @@
   },
   "image_note": "",
   "rights_note": "لا يعني ظهور الصورة في المقال أن إعادة نشرها مسموحة. تحقق من الترخيص أو الإذن قبل النشر.",
-  "verification_note": "أعيدت صياغة المقال اعتمادًا على النص المستخرج فقط؛ لم يتم التحقق من الوقائع بشكل مستقل. المراجعة الآلية في article_review قد تخطئ، فراجع النص قبل النشر."
+  "verification_note": "أعيدت صياغة المقال اعتمادًا على النص المستخرج فقط؛ لم يتم التحقق من الوقائع بشكل مستقل. المراجعة الآلية في article_review قد تخطئ، فراجع النص قبل النشر.",
+  "blogger": {
+    "via": "make",
+    "post_id": "6211401303212139664",
+    "url": "https://www.almosaitiron.com/2026/11/blog-post_790.html",
+    "status": "LIVE",
+    "labels": [
+      "حول العالم"
+    ],
+    "action": "insert",
+    "images": {
+      "thumbnail.jpg": "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@b213adaa74f3878ab57b1e6ca203fbdd1d5e4b1c/output/207651b7be2b/thumbnail.jpg",
+      "article_middle.jpg": "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@b213adaa74f3878ab57b1e6ca203fbdd1d5e4b1c/output/207651b7be2b/article_middle.jpg"
+    },
+    "commit": "b213adaa74f3878ab57b1e6ca203fbdd1d5e4b1c",
+    "published_at_utc": "2026-11-07T20:01:05.189072+00:00"
+  }
 }
