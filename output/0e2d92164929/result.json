@@ -220,5 +220,21 @@
   },
   "image_note": "",
   "rights_note": "لا يعني ظهور الصورة في المقال أن إعادة نشرها مسموحة. تحقق من الترخيص أو الإذن قبل النشر.",
-  "verification_note": "أعيدت صياغة المقال اعتمادًا على النص المستخرج فقط؛ لم يتم التحقق من الوقائع بشكل مستقل. المراجعة الآلية في article_review قد تخطئ، فراجع النص قبل النشر."
+  "verification_note": "أعيدت صياغة المقال اعتمادًا على النص المستخرج فقط؛ لم يتم التحقق من الوقائع بشكل مستقل. المراجعة الآلية في article_review قد تخطئ، فراجع النص قبل النشر.",
+  "blogger": {
+    "via": "make",
+    "post_id": "4606210745155979482",
+    "url": "https://www.almosaitiron.com/2026/11/blog-post_08.html",
+    "status": "LIVE",
+    "labels": [
+      "قصص إنسانية وواقعية"
+    ],
+    "action": "insert",
+    "images": {
+      "thumbnail.jpg": "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@5f9e3065257b895a836d6af5943fb5aab4526d41/output/0e2d92164929/thumbnail.jpg",
+      "article_middle.jpg": "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@5f9e3065257b895a836d6af5943fb5aab4526d41/output/0e2d92164929/article_middle.jpg"
+    },
+    "commit": "5f9e3065257b895a836d6af5943fb5aab4526d41",
+    "published_at_utc": "2026-11-08T09:25:30.430923+00:00"
+  }
 }
