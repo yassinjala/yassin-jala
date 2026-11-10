@@ -64,10 +64,6 @@ REQUEST_HEADERS = {
 }
 
 SESSION = requests.Session()
-# === أضف هذه الأسطر الثلاثة هنا لحل مشكلة الـ 403 نهائياً ===
-SESSION.headers.update(REQUEST_HEADERS)
-# إزالة الترويسات التي قد تسبب حساسية لبعض فلاتر الحماية عند جلب الخلاصات مباشرة
-SESSION.headers.pop("Referer", None) 
 
 
 class ProjectError(Exception):
@@ -108,7 +104,7 @@ def safe_get(url: str, max_bytes: int, expected_image: bool = False):
     try:
         response = SESSION.get(
             url,
-            # تم حذف headers=REQUEST_HEADERS للاعتماد على ترويسات SESSION النظيفة بدون Referer
+            headers=REQUEST_HEADERS,
             timeout=REQUEST_TIMEOUT,
             allow_redirects=True,
             stream=True,
@@ -150,6 +146,7 @@ def safe_get(url: str, max_bytes: int, expected_image: bool = False):
         response.close()
 
     return response.url or url, content_type, bytes(data)
+
 
 def clean_text(value: str | None) -> str:
     return re.sub(r"\s+", " ", value or "").strip()
