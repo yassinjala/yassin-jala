@@ -131,5 +131,21 @@
     ],
     "paragraphs": 48
   },
-  "image_note": ""
+  "image_note": "",
+  "blogger": {
+    "via": "make",
+    "post_id": "4335589893686015974",
+    "url": "https://www.almosaitiron.com/2026/11/blog-post_866.html",
+    "status": "LIVE",
+    "labels": [
+      "قصص",
+      "قصص الرعب والماورائيات والغموض"
+    ],
+    "action": "insert",
+    "images": {
+      "thumbnail.jpg": "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@4d06296e2d5ea6271422345acd79d4ef34c4fc6f/output/e040ab7ef467/thumbnail.jpg"
+    },
+    "commit": "4d06296e2d5ea6271422345acd79d4ef34c4fc6f",
+    "published_at_utc": "2026-11-11T14:24:28.527253+00:00"
+  }
 }
