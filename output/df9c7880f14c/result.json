@@ -131,5 +131,21 @@
     ],
     "paragraphs": 42
   },
-  "image_note": ""
+  "image_note": "",
+  "blogger": {
+    "via": "make",
+    "post_id": "7922931373691158637",
+    "url": "https://www.almosaitiron.com/2026/11/419.html",
+    "status": "LIVE",
+    "labels": [
+      "قصص",
+      "قصص الذكاء والمكر والخدع"
+    ],
+    "action": "insert",
+    "images": {
+      "thumbnail.jpg": "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@fcaa21beead1f0ca53d9ddd4419106a12a3cc5af/output/df9c7880f14c/thumbnail.jpg"
+    },
+    "commit": "fcaa21beead1f0ca53d9ddd4419106a12a3cc5af",
+    "published_at_utc": "2026-11-13T14:18:18.490350+00:00"
+  }
 }
