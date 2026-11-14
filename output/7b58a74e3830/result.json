@@ -145,5 +145,21 @@
       "shown": 6
     },
     "youtube_url": "https://www.youtube.com/watch?v=5KWQM72vIz0"
+  },
+  "blogger": {
+    "via": "make",
+    "post_id": "4527977152545276454",
+    "url": "https://www.almosaitiron.com/2026/11/blog-post_695.html",
+    "status": "LIVE",
+    "labels": [
+      "قصص",
+      "قصص الجرائم والتحقيقات البوليسية"
+    ],
+    "action": "insert",
+    "images": {
+      "thumbnail.jpg": "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@55182d80ce00be0f893a628f8018d0ded74bac2b/output/7b58a74e3830/thumbnail.jpg"
+    },
+    "commit": "55182d80ce00be0f893a628f8018d0ded74bac2b",
+    "published_at_utc": "2026-11-14T14:21:30.673198+00:00"
   }
 }
