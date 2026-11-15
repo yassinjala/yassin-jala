@@ -145,5 +145,21 @@
       "shown": 6
     },
     "youtube_url": "https://www.youtube.com/watch?v=SJhbFzdc2K8"
+  },
+  "blogger": {
+    "via": "make",
+    "post_id": "2854215821246192077",
+    "url": "https://www.almosaitiron.com/2026/11/blog-post_393.html",
+    "status": "LIVE",
+    "labels": [
+      "قصص",
+      "قصص الرعب والماورائيات والغموض"
+    ],
+    "action": "insert",
+    "images": {
+      "thumbnail.jpg": "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@3a00a5bb8ea40dd6cca87a8d7652b1b6e123e6b1/output/24643a06a390/thumbnail.jpg"
+    },
+    "commit": "3a00a5bb8ea40dd6cca87a8d7652b1b6e123e6b1",
+    "published_at_utc": "2026-11-15T14:17:44.699153+00:00"
   }
 }
