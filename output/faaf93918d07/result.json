@@ -131,5 +131,21 @@
     ],
     "paragraphs": 40
   },
-  "image_note": ""
+  "image_note": "",
+  "blogger": {
+    "via": "make",
+    "post_id": "6758992717238519183",
+    "url": "https://www.almosaitiron.com/2026/11/704.html",
+    "status": "LIVE",
+    "labels": [
+      "قصص",
+      "القصص الاجتماعية الواقعية والدراما"
+    ],
+    "action": "insert",
+    "images": {
+      "thumbnail.jpg": "https://cdn.jsdelivr.net/gh/yassinjala/yassin-jala@790f2abf4ff1950ee473d1927245d5b135764741/output/faaf93918d07/thumbnail.jpg"
+    },
+    "commit": "790f2abf4ff1950ee473d1927245d5b135764741",
+    "published_at_utc": "2026-11-16T16:18:40.050555+00:00"
+  }
 }
